@@ -43,8 +43,8 @@ nltk.download('words')
 
 
 def pre_process(message,
-                english_words,
-                important_words):
+				english_words,
+				important_words):
 	'''
 	pre_process :
 	to prepocess each of the messages, i.e:
@@ -69,20 +69,20 @@ def pre_process(message,
 	 type : list 
 	 The words important in the given context
 	'''
-    processed_message = ""
-    if len(message) == 0:
-        return processed_message
-    is_message_english = is_english(message, english_words, important_words)
-    has_valid_words_in_message = has_important_words(message, important_words)
-    if is_message_english and has_valid_words_in_message:
-        processed_message = message
-    return processed_message
+	processed_message = ""
+	if len(message) == 0:
+		return processed_message
+	is_message_english = is_english(message, english_words, important_words)
+	has_valid_words_in_message = has_important_words(message, important_words)
+	if is_message_english and has_valid_words_in_message:
+		processed_message = message
+	return processed_message
 
 
 
 def create_dataset(raw_data,
- 					english_words,
- 					important_words):
+					english_words,
+					important_words):
 	
 	'''
 	create_dataset :
@@ -109,26 +109,26 @@ def create_dataset(raw_data,
 	 type : list 
 	 The words important in the given context
 	'''
-    prepared_dataset_list = []
-    for i in tqdm(range(len(raw_data))):
-        raw_datum = raw_data[int(i)]
-        date = raw_datum['date'].split('T')[0]
-        message = ""
-        if is_valid_date(date):
-        
-            if 'text' in raw_datum.keys():
-                message = raw_datum['text']
-            if type(message) == str:
-                processed_message = pre_process(message,
-                                      english_words,
-                                      important_words)
+	prepared_dataset_list = []
+	for i in tqdm(range(len(raw_data))):
+		raw_datum = raw_data[int(i)]
+		date = raw_datum['date'].split('T')[0]
+		message = ""
+		if is_valid_date(date):
+		
+			if 'text' in raw_datum.keys():
+				message = raw_datum['text']
+			if type(message) == str:
+				processed_message = pre_process(message,
+									  english_words,
+									  important_words)
 
-                if len(processed_message) !=0 :
-                    data_point = [processed_message, date]
-                    prepared_dataset_list.append(data_point)
-    
-    prepared_dataset_dataframe = pd.DataFrame(prepared_dataset_list, columns = ['message', 'date'])
-    return prepared_dataset_dataframe
+				if len(processed_message) !=0 :
+					data_point = [processed_message, date]
+					prepared_dataset_list.append(data_point)
+	
+	prepared_dataset_dataframe = pd.DataFrame(prepared_dataset_list, columns = ['message', 'date'])
+	return prepared_dataset_dataframe
 
 def main(args):
 
@@ -177,12 +177,20 @@ def main(args):
 	plotting_averages_dataframe = create_plotting_averages_data(processed_averages_dataframe)
 
 
-	# Generate plot and save
-	generate_grouped_barplot(plotting_daily_dataframe, 'date', 'count', 'sentiment', 'group', 'Daily Sentiments Grouped Barplot.html')
+	# Generate interactive plots and save
+	generate_grouped_barplot(plotting_daily_dataframe, 'date', 'count', 'sentiment', 'group','html', 'Daily Sentiments Grouped Barplot.html')
 
-	generate_barplot(plotting_averages_dataframe, 'date', 'average_polarity', 'average_sentiment', 'Average Daily Sentiments Barplot.html')
+	generate_barplot(plotting_averages_dataframe, 'date', 'average_polarity', 'average_sentiment','html' ,'Average Daily Sentiments Barplot.html')
 
-	generate_scatterplot(plotting_averages_dataframe, 'date', 'average_polarity', 'average_sentiment',  'Average Daily Sentiments Scatterplot.html')
+	generate_scatterplot(plotting_averages_dataframe, 'date', 'average_polarity', 'average_sentiment','html' , 'Average Daily Sentiments Scatterplot.html')
+
+	# Generate static plots and save
+	generate_grouped_barplot(plotting_daily_dataframe, 'date', 'count', 'sentiment', 'group','png', 'Daily Sentiments Grouped Barplot.png')
+
+	generate_barplot(plotting_averages_dataframe, 'date', 'average_polarity', 'average_sentiment','png' ,'Average Daily Sentiments Barplot.png')
+
+	generate_scatterplot(plotting_averages_dataframe, 'date', 'average_polarity', 'average_sentiment','png'  ,'Average Daily Sentiments Scatterplot.png')
+
 
 
 

@@ -48,6 +48,7 @@ def generate_grouped_barplot(dataframe,
                             y_col, 
                             color_col, 
                             barmode, 
+                            file_type,
                             file_name):
     '''
     generate_grouped_barplot
@@ -59,13 +60,17 @@ def generate_grouped_barplot(dataframe,
                 y= y_col,
                 color = color_col,
                 barmode = barmode)
-    fig.write_html(file_name)
+    if file_type == 'html':
+        fig.write_html(file_name)
+    if file_type == 'png':
+        fig.write_image(file_name)
 
 
 def generate_barplot(dataframe, 
                     x_col, 
                     y_col, 
-                    color_col, 
+                    color_col,
+                    file_type, 
                     file_name):
     '''
     generate_barplot
@@ -76,12 +81,16 @@ def generate_barplot(dataframe,
                 x= x_col,
                 y= y_col,
                 color = color_col)
-    fig.write_html(file_name)
+    if file_type == 'html':
+        fig.write_html(file_name)
+    if file_type == 'png':
+        fig.write_image(file_name)
 
 def generate_scatterplot(dataframe, 
                     x_col, 
                     y_col, 
-                    color_col, 
+                    color_col,
+                    file_type, 
                     file_name):
     '''
     generate_scatterplot
@@ -95,6 +104,9 @@ def generate_scatterplot(dataframe,
                     symbol=color_col)
 
     fig.update_traces(marker_size=10)
-    fig.write_html(file_name)
+    if file_type == 'html':
+        fig.write_html(file_name)
+    if file_type == 'png':
+        fig.write_image(file_name)
 
 

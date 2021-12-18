@@ -41,9 +41,20 @@ Interactive Versions:
 3.  Daily Sentiments Grouped Barplot.html
 
 Static Versions:
-1.  Average Daily Sentiments Barplot.png ![alt text](https://github.com/AniruddhaKalkar/MINDS-Center-Programming-Assesment/blob/main/Average%20Daily%20Sentiments%20Barplot.png?raw=true)
-2.  Average Daily Sentiments Scatter Plot.png ![alt text](https://github.com/AniruddhaKalkar/MINDS-Center-Programming-Assesment/blob/main/Average%20Daily%20Sentiments%20Scatterplot.png?raw=true)
-3.  Daily Sentiments Grouped Barplot.png ![alt text](https://github.com/AniruddhaKalkar/MINDS-Center-Programming-Assesment/blob/main/Daily%20Sentiments%20Grouped%20Barplot.png?raw=true)
+
+1.  Average Daily Sentiments Barplot.png 
+
+![alt text](https://github.com/AniruddhaKalkar/MINDS-Center-Programming-Assesment/blob/main/Average%20Daily%20Sentiments%20Barplot.png?raw=true)
+
+
+2.  Average Daily Sentiments Scatter Plot.png
+  
+![alt text](https://github.com/AniruddhaKalkar/MINDS-Center-Programming-Assesment/blob/main/Average%20Daily%20Sentiments%20Scatterplot.png?raw=true)
+
+
+3. Daily Sentiments Grouped Barplot.png 
+ 
+![alt text](https://github.com/AniruddhaKalkar/MINDS-Center-Programming-Assesment/blob/main/Daily%20Sentiments%20Grouped%20Barplot.png?raw=true)
 
 
 ### Insights
